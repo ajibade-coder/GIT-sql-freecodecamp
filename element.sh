@@ -40,6 +40,8 @@ DATA_RESULT() {
   if [[ -z $DATA ]]
   then
       echo "I could not find that element in the database."
+
+    # if data varaiable not empty
   else
       IFS="|" read -r atomic_number symbol name atomic_mass  melting_point_celsius boiling_point_celsius type <<< "$DATA"
 
@@ -53,6 +55,11 @@ if [[ -z $1 ]]
 then
   echo "Please provide an element as an argument."
 else
+
+DATADERIVE $1
+
+DATA_RESULT
+
   
 
 fi
